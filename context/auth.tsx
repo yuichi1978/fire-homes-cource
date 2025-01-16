@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   ParsedToken,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import {
   createContext,
@@ -21,6 +22,7 @@ type AuthContextType = {
   logout: () => Promise<void>;
   loginWithGoogle: () => Promise<void>;
   customClaims: ParsedToken | null;
+  loginWithEmail: (email: string, password: string) => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -42,7 +44,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (token && refreshToken) {
           await setToken({
             token,
-            refreshToken
+            refreshToken,
           });
         }
       } else {
@@ -62,8 +64,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     await signInWithPopup(auth, provider);
   };
 
+  const loginWithEmail = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, logout, loginWithGoogle, customClaims }}>
+    <AuthContext.Provider
+      value={{
+        currentUser,
+        logout,
+        loginWithGoogle,
+        customClaims,
+        loginWithEmail,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

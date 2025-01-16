@@ -57,7 +57,7 @@ export default async function PropertiesTable({ page = 1 }: { page: number }) {
                     £{numeral(property.price).format("0,0")}
                   </TableCell>
                   <TableCell>
-                    <PropertyStatusBadge status={property.status} />
+                    <PropertyStatusBadge status={property.status} className="" />
                   </TableCell>
                   <TableCell className="flex justify-end gap-1">
                     view /{" "}

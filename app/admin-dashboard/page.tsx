@@ -5,7 +5,7 @@ import Link from "next/link";
 import PropertiesTable from "@/app/admin-dashboard/properties-table";
 
 export default async function AdminDashboard({
-  searchParams
+  searchParams,
 }: {
   searchParams?: Promise<any>;
 }) {
@@ -26,7 +26,9 @@ export default async function AdminDashboard({
           <PlusCircleIcon /> New Property
         </Link>
       </Button>
-      <PropertiesTable page={searchParamsValue?.page ? parseInt(searchParamsValue.page) : 1} />
+      <PropertiesTable
+        page={searchParamsValue?.page ? parseInt(searchParamsValue.page) : 1}
+      />
     </div>
   );
 }

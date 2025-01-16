@@ -7,11 +7,17 @@ import { useRouter } from "next/navigation";
 export default function ContinueWithGoogleButton() {
   const router = useRouter();
   const auth = useAuth();
+
   return (
     <Button
+      variant="outline"
       onClick={async () => {
-        await auth?.loginWithGoogle();
-        router.refresh();
+        try {
+          await auth?.loginWithGoogle();
+          router.refresh();
+        } catch (error) {
+          console.log(error)
+        }
       }}
       className="w-full"
     >

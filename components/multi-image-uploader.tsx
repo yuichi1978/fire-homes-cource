@@ -104,7 +104,7 @@ export default function MultiImageUploader({
                           <Image
                             src={urlFormatter ? urlFormatter(image) : image.url}
                             alt=""
-                            className="object-cover"
+                            className="object-cover w-full h-full"
                             width={500}
                             height={500}
                           />

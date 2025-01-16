@@ -216,7 +216,7 @@ export default function PropertyForm({
                   images={field.value}
                   urlFormatter={(image) => {
                     if (!image.file) {
-                      return `https://firebasestorage.googleapis.com/v0/b/fire-homes-course-521e5.appspot.com/o/${encodeURIComponent(
+                      return `https://firebasestorage.googleapis.com/v0/b/fire-homes-course-521e5.firebasestorage.app/o/${encodeURIComponent(
                         image.url
                       )}?alt=media`;
                     }

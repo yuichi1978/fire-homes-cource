@@ -13,6 +13,8 @@ import numeral from "numeral";
 import ReactMarkdown from "react-markdown";
 import BackButton from "@/app/property/[propertyId]/back-button";
 
+export const dynamic = "force-static";
+
 export default async function PropertyPage({
   params,
 }: {
@@ -40,11 +42,11 @@ export default async function PropertyPage({
                 <CarouselItem key={image}>
                   <div className="relative h-[80vh] min-h-80">
                     <Image
-                      src={`https://firebasestorage.googleapis.com/v0/b/fire-homes-course-521e5.appspot.com/o/${encodeURIComponent(
+                      src={`https://firebasestorage.googleapis.com/v0/b/fire-homes-course-521e5.firebasestorage.app/o/${encodeURIComponent(
                         image
                       )}?alt=media`}
                       alt={`image ${index + 1}`}
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                       width={500}
                       height={500}
                     />

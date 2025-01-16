@@ -76,6 +76,7 @@ export const getPropertiesById = async (propertyIds: string[]) => {
   if (!propertyIds.length) {
     return [];
   }
+
   const propertiesSnapshot = await firestore
     .collection("properties")
     .where("__name__", "in", propertyIds)
